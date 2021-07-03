@@ -1,0 +1,10 @@
+# depend
+dist
+node_modules
+
+# debug
+yarn-error.log
+yarn-debug.log
+
+# misc
+.DS_Store
