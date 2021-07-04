@@ -11,12 +11,12 @@ const main = () => {
 main()
 
 judge.onclick = () => {
-	let elementTarget:HTMLInputElement = <HTMLInputElement>document.getElementById('target')
-	let elementStart:HTMLInputElement = <HTMLInputElement>document.getElementById('start')
-	let elementEnd:HTMLInputElement = <HTMLInputElement>document.getElementById('end')
-	let target:number = Number(elementTarget.value)
-	let start:number = Number(elementStart.value)
-	let end:number = Number(elementEnd.value)
+	const elementTarget:HTMLInputElement = <HTMLInputElement>document.getElementById('target')
+	const elementStart:HTMLInputElement = <HTMLInputElement>document.getElementById('start')
+	const elementEnd:HTMLInputElement = <HTMLInputElement>document.getElementById('end')
+	const target:number = Number(elementTarget.value)
+	const start:number = Number(elementStart.value)
+	const end:number = Number(elementEnd.value)
 
 	console.log("target:",target)
 	console.log("start:",start)
@@ -39,6 +39,6 @@ judge.onclick = () => {
 }
 
 const reset = () => {
-	let form:HTMLFormElement = <HTMLFormElement>document.getElementById('inputForm')
+	const form:HTMLFormElement = <HTMLFormElement>document.getElementById('inputForm')
 	form.reset()
 }
