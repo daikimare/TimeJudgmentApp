@@ -19,6 +19,6 @@ judge.onclick = () => {
 	const end:number = Number(elementEnd.value)
 
 	console.log("target:",target)
-	console.log("start",start)
-	console.log("end",end)
+	console.log("start:",start)
+	console.log("end:",end)
 }
