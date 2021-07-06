@@ -1,5 +1,5 @@
 // DOM
-const judge:any = document.getElementById('judge')
+const judge:HTMLButtonElement = <HTMLButtonElement>document.getElementById('judge')
 const ans:any = document.getElementById('ans')
 
 const main = () => {
@@ -27,14 +27,20 @@ judge.onclick = () => {
 		reset()
 		console.log("target:",target)
 		alert("判定する時間は0以上24以下の数値で入力してください")
+
+		return
 	}
 	if(start<0 || 24<start){
 		reset()
 		alert("判定範囲のスタート時刻は0以上24以下の数値で入力してください")
+
+		return
 	}
 	if(end<0 || 24<end){
 		reset()
 		alert("判定範囲の終了時刻は0以上24以下の数値で入力してください")
+
+		return
 	}
 
 	/* lenge check　*/
@@ -63,9 +69,11 @@ judge.onclick = () => {
 			const trueParagraph:HTMLParagraphElement = <HTMLParagraphElement>document.createElement('p')
 			const trueCentense = `入力された時刻${target}時は指定した範囲${start}時~${end}時の範囲を日付をまたいだと見なすので範囲内に含まれます`
 			trueParagraph.textContent = trueCentense
-			ans.appendChild(trueParagraph)	
+			ans.appendChild(trueParagraph)
 		}
 	}
+
+	reset()
 }
 
 const reset = () => {
@@ -73,7 +81,11 @@ const reset = () => {
 	form.reset()
 }
 
-// const outPut = (target) => {
-// 	const setStatus = document.createElement("p")
-// 	setStatus.innerHTML("比較対象の時間：",target)
-// }
+const restart = () => {
+	const restartButton: HTMLButtonElement = <HTMLButtonElement>document.createElement('button')
+	restartButton.textContent = "restart"
+	restartButton.onclick = () => {
+		location.reload()
+	}
+	restartButton.appendChild(ans)
+}
