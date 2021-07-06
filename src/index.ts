@@ -1,7 +1,8 @@
-// DOM
+/* DOM　*/
 const judge:HTMLButtonElement = <HTMLButtonElement>document.getElementById('judge')
 const ans:any = document.getElementById('ans')
 
+// 
 const main = () => {
 	console.log("app start!")
 	console.log("Get DOM")
@@ -10,6 +11,7 @@ const main = () => {
 }
 main()
 
+/* judgment function */
 judge.onclick = () => {
 	/* time's elements (DOM) */
 	// type asertion
