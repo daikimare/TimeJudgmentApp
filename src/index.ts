@@ -69,44 +69,33 @@ judge.onclick = () => {
 	}
 
 	// cross over a day
-	if (end < start) {
-		const fixEndTime:number = end + 12
-		const fixStartTime:number = start - 12
-		if (target<12) {
-			const targetTime:number = target + 12
-			if (fixStartTime <= targetTime && targetTime < fixEndTime ) {
-				const trueParagraph:HTMLParagraphElement = <HTMLParagraphElement>document.createElement('p')
-				const trueCentense = `入力された時刻${target}時は指定した範囲${start}時~${end}時の範囲を日付をまたいだと見なすので範囲内に含まれます`
-				trueParagraph.textContent = trueCentense
-				ans.appendChild(trueParagraph)
-			}
-		} /*else if (12<=target){
-			const targetTime:number = target - 12
-			if (fixStartTime <= targetTime && targetTime < fixEndTime ) {
-				const trueParagraph:HTMLParagraphElement = <HTMLParagraphElement>document.createElement('p')
-				const trueCentense = `入力された時刻${target}時は指定した範囲${start}時~${end}時の範囲を日付をまたいだと見なすので範囲内に含まれます`
-				trueParagraph.textContent = trueCentense
-				ans.appendChild(trueParagraph)
-			}
-		}*/
-
-		// if (fixStartTime <= target && target < fixEndTime ) {
-		// 	const trueParagraph:HTMLParagraphElement = <HTMLParagraphElement>document.createElement('p')
-		// 	const trueCentense = `入力された時刻${target}時は指定した範囲${start}時~${end}時の範囲を日付をまたいだと見なすので範囲内に含まれます`
-		// 	trueParagraph.textContent = trueCentense
-		// 	ans.appendChild(trueParagraph)
-		// }
+	if (end<start){
+		if (start <= target){
+			const trueParagraph:HTMLParagraphElement = <HTMLParagraphElement>document.createElement('p')
+			const trueCentense = `入力された時刻${target}時は指定した範囲${start}時~翌日${end}時の範囲内に含まれます`
+			trueParagraph.textContent = trueCentense
+			ans.appendChild(trueParagraph)	
+		} else if (target < end && target < start) {
+			const trueParagraph:HTMLParagraphElement = <HTMLParagraphElement>document.createElement('p')
+			const trueCentense = `入力された時刻${target}時は指定した範囲${start}時~翌日${end}時の範囲内に含まれます`
+			trueParagraph.textContent = trueCentense
+			ans.appendChild(trueParagraph)
+		} else {
+			const trueParagraph:HTMLParagraphElement = <HTMLParagraphElement>document.createElement('p')
+			const trueCentense = `入力された時刻${target}時は指定した範囲${start}時~翌日${end}時の範囲外なので範囲内に含まれません`
+			trueParagraph.textContent = trueCentense
+			ans.appendChild(trueParagraph)
+		}
 	}
 
 	if ( target < start && (end < target || start < end )) {
 		const falsePragraph:HTMLParagraphElement = <HTMLParagraphElement>document.createElement('p')
-		const falseCentense = `入力された時刻${target}時は指定した範囲${start}時~${end}時の範囲にに含まれていません`
+		const falseCentense = `入力された時刻${target}時は指定した範囲${start}時~翌日${end}時の範囲にに含まれていません`
 		falsePragraph.textContent = falseCentense
 		ans.appendChild(falsePragraph)
 	} 
 
 	reset()
-	restart()
 }
 
 const reset = () => {
@@ -122,3 +111,4 @@ const restart = () => {
 	}
 	ans.appendChild(restartButton)
 }
+restart()
