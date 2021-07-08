@@ -1,3 +1,8 @@
+/*
+	モバイルファクトリーエントリーシート
+	福島大稀 
+*/
+
 /* DOM　*/
 const judge:HTMLButtonElement = <HTMLButtonElement>document.getElementById('judge')
 const ans:any = document.getElementById('ans')
